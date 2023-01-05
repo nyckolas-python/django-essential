@@ -1,6 +1,6 @@
 ARG PYTHON_VERSION=3.9.10
 
-FROM python:${PYTHON_VERSION}
+FROM python:${PYTHON_VERSION}-slim
 LABEL Mykola Hryshchenko
 
 RUN apt-get update && apt-get install -y \
