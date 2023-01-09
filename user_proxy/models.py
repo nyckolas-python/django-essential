@@ -1,7 +1,7 @@
 from django.db import models
 
 from django.contrib.auth.models import User
-from proxy_user.managers import PersonManager
+from user_proxy.managers import PersonManager
 
 
 class Person(User):

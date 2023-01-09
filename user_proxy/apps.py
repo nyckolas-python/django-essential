@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ProxyUserConfig(AppConfig):
+class UserProxyConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'proxy_user'
+    name = 'user_proxy'

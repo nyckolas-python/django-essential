@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from proxy_user.views import Index, CreateUser, AllUsers
+from user_proxy.views import Index, CreateUser, AllUsers
 
 urlpatterns = [
     path('admin/', admin.site.urls),
