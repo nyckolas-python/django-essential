@@ -15,11 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from user_proxy.views import Index, CreateUser, AllUsers
+# disable user_proxy.views to use user_profile.views
+# from user_proxy.views import Index, CreateUser, AllUsers
+from user_profile.views import Index, CreateUser, AllUsers, UpdateProfile
+
+from app.settings import MEDIA_ROOT, MEDIA_URL
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Index.as_view(), name="index"),
     path('signup/', CreateUser.as_view(), name="signup"),
-    path('all_users/', AllUsers.as_view(), name="all_users")
-]
+    path('all_users/', AllUsers.as_view(), name="all_users"),
+    path('profile/<pk>', UpdateProfile.as_view(), name='profile')
+] + static(MEDIA_URL, document_root=MEDIA_ROOT)
