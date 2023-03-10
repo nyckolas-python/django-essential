@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'user_profile',
     'phone_field',
     'nyckolas_shop',
+    'nyckolas_frontend',
 ]
 
 MIDDLEWARE = [
