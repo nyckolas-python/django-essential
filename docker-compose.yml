@@ -19,7 +19,7 @@ services:
       DB_USER: "postgres"
       DB_PASS: "postgres"
     depends_on:
-      - db
+      - postgres
 
   postgres:
     container_name: postgres_container
