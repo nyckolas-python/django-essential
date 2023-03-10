@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import format_html
 
 
 class Brand(models.Model):
@@ -52,6 +53,13 @@ class Dishwasher(Item):
     power = models.IntegerField(default=0)
     width = models.FloatField()
     height = models.FloatField()
+
+    def colored_name(self):
+        return format_html(
+            '<span style="color: #ff0FFF;">{} {}</span>',
+            self.model,
+            self.brand_name,
+        )
 
 
 class VacuumCleaner(Item):
