@@ -2,6 +2,7 @@ import json
 import random
 import urllib.request
 
+from django.urls import reverse_lazy
 from django.views.generic import (TemplateView, ListView, DetailView, DateDetailView,
                                   WeekArchiveView, DeleteView, CreateView, UpdateView, FormView)
 from django.contrib.auth.views import LoginView
@@ -61,7 +62,9 @@ class WeekArchiveViewExample(WeekArchiveView):
 class CreateViewExample(CreateView):
     form_class = SignUpForm
     template_name = 'signup.html'
-    success_url = '/'
+
+    def get_success_url(self):
+        return reverse_lazy('detail', kwargs={'pk': self.object.pk})
 
 
 class UpdateExample(UpdateView):
