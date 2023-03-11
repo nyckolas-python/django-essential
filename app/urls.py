@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 # disable user_proxy.views to use user_profile.views
 # from user_proxy.views import Index, CreateUser, AllUsers
 from user_profile.views import Index, CreateUser, AllUsers, UpdateProfile
@@ -27,5 +27,6 @@ urlpatterns = [
     path('', Index.as_view(), name="index"),
     path('signup/', CreateUser.as_view(), name="signup"),
     path('all_users/', AllUsers.as_view(), name="all_users"),
-    path('profile/<pk>', UpdateProfile.as_view(), name='profile')
+    path('profile/<pk>', UpdateProfile.as_view(), name='profile'),
+    path('front/', include('nyckolas_frontend.urls')),
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
