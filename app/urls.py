@@ -29,4 +29,5 @@ urlpatterns = [
     path('all_users/', AllUsers.as_view(), name="all_users"),
     path('profile/<pk>', UpdateProfile.as_view(), name='profile'),
     path('front/', include('nyckolas_frontend.urls')),
+    path('', include('jinja_app.urls')),
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
