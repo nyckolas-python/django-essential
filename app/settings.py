@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'phone_field',
     'nyckolas_shop',
     'nyckolas_frontend',
+    'jinja_app',
 ]
 
 MIDDLEWARE = [
