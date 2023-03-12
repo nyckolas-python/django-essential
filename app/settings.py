@@ -74,6 +74,12 @@ TEMPLATES = [
             ],
         },
     },
+    {
+        'BACKEND': 'jinja_app.my_backend.MyBackend',
+        'DIRS': [
+            BASE_DIR / 'jinja_app/templates'
+        ],
+    },
 ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
