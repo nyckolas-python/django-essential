@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'nyckolas_shop',
     'nyckolas_frontend',
     'jinja_app',
+    'email_app',
 ]
 
 MIDDLEWARE = [
