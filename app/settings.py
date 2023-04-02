@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'nyckolas_frontend',
     'jinja_app',
     'email_app',
+    'reset_password_app',
 ]
 
 MIDDLEWARE = [
