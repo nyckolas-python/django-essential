@@ -31,5 +31,5 @@ urlpatterns = [
     path('front/', include('nyckolas_frontend.urls')),
     path('', include('jinja_app.urls')),
     path('', include('email_app.urls')),
-    # path('', include('reset_password_app.urls'))
+    path('', include('reset_password_app.urls'))
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
