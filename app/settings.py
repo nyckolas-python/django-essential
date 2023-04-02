@@ -12,9 +12,14 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 import django
+
+from dotenv import load_dotenv
 from pathlib import Path
 from django.utils.encoding import smart_str
 django.utils.encoding.smart_text = smart_str
+
+# Load variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,10 +29,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!(x&6#=)=ek7nixu@mt=5)h*ua2-_te_202st676s8pznfa%9m'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = env('DEBUG')
 DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -104,10 +111,10 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
-#         'HOST': os.environ.get('DB_HOST'),
-#         'NAME': os.environ.get('DB_NAME'),
-#         'USER': os.environ.get('DB_USER'),
-#         'PASSWORD': os.environ.get('DB_PASS'),
+#         'HOST': os.getenv('DB_HOST'),
+#         'NAME': os.getenv('DB_NAME'),
+#         'USER': os.getenv('DB_USER'),
+#         'PASSWORD': os.getenv('DB_PASS'),
 #     }
 # }
 
@@ -165,21 +172,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # GMAIL CONFIG
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = 'voipmebwpdlihksp'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'TestSite Team <noreply@example.com>'
 
 # AWS CONFIG
-# DEFAULT_FROM_EMAIL = 'itvdn.django2@gmail.com'
+# DEFAULT_FROM_EMAIL = os.getenv('AWS_DEFAULT_FROM_EMAIL')
 
 # EMAIL_USE_TLS = True
-# EMAIL_HOST = 'email-smtp.us-east-2.amazonaws.com'
-# EMAIL_HOST_USER = 'AKIA5ZT43BP5LNAO3QTY'
-# EMAIL_HOST_PASSWORD = 'BFzrmpzbO6qEQc3yP8hcSYD5f2f/E8R/MBLxk6YEcQq6'
+# EMAIL_HOST = os.getenv('AWS_EMAIL_HOST')
+# EMAIL_HOST_USER = os.getenv('AWS_EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.getenv('AWS_EMAIL_HOST_PASSWORD')
 
 # # MAILCHIMP CONFIG
-MAILCHIMP_API_KEY = "c68cc4d896d760c468d62de88ab0c940-us7"
-MAILCHIMP_DATA_CENTER = "us7"
-MAILCHIMP_EMAIL_LIST_ID = "4dd3fadb19"
+MAILCHIMP_API_KEY = os.getenv('MAILCHIMP_API_KEY')
+MAILCHIMP_DATA_CENTER = os.getenv('MAILCHIMP_DATA_CENTER')
+MAILCHIMP_EMAIL_LIST_ID = os.getenv('MAILCHIMP_EMAIL_LIST_ID')
