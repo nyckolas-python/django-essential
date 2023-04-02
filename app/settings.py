@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import os
+import django
 from pathlib import Path
+from django.utils.encoding import smart_str
+django.utils.encoding.smart_text = smart_str
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_inlinecss',
     'user_proxy',
     'user_profile',
     'phone_field',
@@ -72,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -140,16 +145,40 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'media/')
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/', 'img')
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/test-mail/images/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# GMAIL CONFIG
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = 'voipmebwpdlihksp'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'TestSite Team <noreply@example.com>'
+
+# AWS CONFIG
+# DEFAULT_FROM_EMAIL = 'itvdn.django2@gmail.com'
+
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'email-smtp.us-east-2.amazonaws.com'
+# EMAIL_HOST_USER = 'AKIA5ZT43BP5LNAO3QTY'
+# EMAIL_HOST_PASSWORD = 'BFzrmpzbO6qEQc3yP8hcSYD5f2f/E8R/MBLxk6YEcQq6'
+
+# # MAILCHIMP CONFIG
+MAILCHIMP_API_KEY = "c68cc4d896d760c468d62de88ab0c940-us7"
+MAILCHIMP_DATA_CENTER = "us7"
+MAILCHIMP_EMAIL_LIST_ID = "4dd3fadb19"
