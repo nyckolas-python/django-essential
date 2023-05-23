@@ -26,7 +26,7 @@ class MyTemplateView(TemplateView):
 
     # https://stackoverflow.com/questions/1633109/creating-a-mime-email-template-with-images-to-send-with-python-django
     def logo_data(self, image_name):
-        print(image_name)
+        print(f"{image_name} was added to the mail attachment")
         with open(os.path.join(settings.MEDIA_ROOT, image_name), 'rb') as f:
             logo_data = f.read()
         logo = MIMEImage(logo_data)
@@ -36,7 +36,7 @@ class MyTemplateView(TemplateView):
         return logo
 
     def get(self, request, *args, **kwargs):
-        html_message = render_to_string(self.template_name)
+        html_message = render_to_string(self.template_name, context={'email': True})
 
         email_message = EmailMultiAlternatives(subject='Subject',
                                                body='text_content',
