@@ -40,7 +40,7 @@
             </tr><!-- end tr -->
             <tr>
                 <td valign="middle" class="hero"
-                    style="background-image: url(cid:bg_1.jpg); background-size: cover; height: 400px;">
+                    style="background-image: url({% if email %}cid:bg_1.jpg{% else %}images/bg_1.jpg{% endif %}); background-size: cover; height: 400px;">
                     <table>
                         <tr>
                             <td>
@@ -103,7 +103,7 @@
                                                    width="100%">
                                                 <tr>
                                                     <td class="icon">
-                                                        <img src="cid:001-diet.png"
+                                                        <img src="{% if email %}cid:001-diet.png{% else %}images/001-diet.png{% endif %}"
                                                              alt=""
                                                              style="width: 60px; max-width: 600px; height: auto; margin: auto; display: block;">
                                                     </td>
@@ -127,7 +127,7 @@
                                                    width="100%">
                                                 <tr>
                                                     <td class="icon">
-                                                        <img src="cid:003-recipe-book.png"
+                                                        <img src="{% if email %}cid:003-recipe-book.png{% else %}images/003-recipe-book.png{% endif %}"
                                                              alt=""
                                                              style="width: 60px; max-width: 600px; height: auto; margin: auto; display: block;">
                                                     </td>
@@ -157,7 +157,7 @@
                                             <table>
                                                 <tr>
                                                     <td>
-                                                        <img src="cid:bg_2.jpg"
+                                                        <img src="{% if email %}cid:bg_2.jpg{% else %}images/bg_2.jpg{% endif %}"
                                                              width="600"
                                                              height=""
                                                              alt="alt_text"
@@ -169,7 +169,7 @@
                                             </table>
                                             <div class="icon">
                                                 <a href="#">
-                                                    <img src="cid:002-play-button.png"
+                                                    <img src="{% if email %}cid:002-play-button.png{% else %}images/002-play-button.png{% endif %}"
                                                          alt=""
                                                          style="width: 60px; max-width: 600px; height: auto; margin: auto; display: block;">
                                                 </a>
@@ -213,7 +213,7 @@
                                                    width="100%">
                                                 <tr>
                                                     <td style="padding-right: 10px;">
-                                                        <img src="cid:menu-1.jpg"
+                                                        <img src="{% if email %}cid:menu-1.jpg{% else %}images/menu-1.jpg{% endif %}"
                                                              alt=""
                                                              style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                                     </td>
@@ -242,7 +242,7 @@
                                                    width="100%">
                                                 <tr>
                                                     <td style="padding-left: 10px;">
-                                                        <img src="cid:menu-2.jpg"
+                                                        <img src="{% if email %}cid:menu-2.jpg{% else %}images/menu-2.jpg{% endif %}"
                                                              alt=""
                                                              style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                                     </td>
@@ -312,7 +312,7 @@
                                                    width="100%">
                                                 <tr>
                                                     <td>
-                                                        <img src="cid:bg_3.jpg"
+                                                        <img src="{% if email %}cid:bg_3.jpg{% else %}images/bg_3.jpg{% endif %}"
                                                              alt=""
                                                              style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                                     </td>
@@ -337,7 +337,7 @@
                                                    width="100%">
                                                 <tr>
                                                     <td>
-                                                        <img src="cid:bg_4.jpg"
+                                                        <img src="{% if email %}cid:bg_4.jpg{% else %}images/bg_4.jpg{% endif %}"
                                                              alt=""
                                                              style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                                     </td>
@@ -422,7 +422,7 @@
                                                    width="100%">
                                                 <tr>
                                                     <td>
-                                                        <img src="cid:bg_6.jpg"
+                                                        <img src="{% if email %}cid:bg_6.jpg{% else %}images/bg_6.jpg{% endif %}"
                                                              alt=""
                                                              style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                                     </td>
@@ -447,7 +447,7 @@
                                                    width="100%">
                                                 <tr>
                                                     <td>
-                                                        <img src="cid:bg_5.jpg"
+                                                        <img src="{% if email %}cid:bg_5.jpg{% else %}images/bg_5.jpg{% endif %}"
                                                              alt=""
                                                              style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                                     </td>
@@ -571,7 +571,7 @@
                                                    width="100%">
                                                 <tr>
                                                     <td style="padding-right: 10px;">
-                                                        <img src="cid:blog-1.jpg"
+                                                        <img src="{% if email %}cid:blog-1.jpg{% else %}images/blog-1.jpg{% endif %}"
                                                              alt=""
                                                              style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                                     </td>
@@ -603,7 +603,7 @@
                                                    width="100%">
                                                 <tr>
                                                     <td style="padding-left: 10px;">
-                                                        <img src="cid:blog-2.jpg"
+                                                        <img src="{% if email %}cid:blog-2.jpg{% else %}images/blog-2.jpg{% endif %}"
                                                              alt=""
                                                              style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;">
                                                     </td>
@@ -653,7 +653,7 @@
                                                    width="100%">
                                                 <tr>
                                                     <td>
-                                                        <img src="cid:person_1.jpg"
+                                                        <img src="{% if email %}cid:person_1.jpg{% else %}images/person_1.jpg{% endif %}"
                                                              alt=""
                                                              style="width: 100px; max-width: 600px; height: auto; margin: auto; margin-bottom: 20px; display: block; border-radius: 50%;">
                                                     </td>
@@ -683,7 +683,7 @@
                                                    width="100%">
                                                 <tr>
                                                     <td>
-                                                        <img src="cid:person_2.jpg"
+                                                        <img src="{% if email %}cid:person_2.jpg{% else %}images/person_2.jpg{% endif %}"
                                                              alt=""
                                                              style="width: 100px; max-width: 600px; height: auto; margin: auto; margin-bottom: 20px; display: block; border-radius: 50%;">
                                                     </td>
@@ -788,7 +788,7 @@
                                        cellpadding="0" border="0" width="100%">
                                     <tr>
                                         <td style="text-align: left; padding-right: 10px;">
-                                            <p>&copy; 2018 Restobar. All Rights
+                                            <p>&copy; {% now 'Y' %} Restobar. All Rights
                                                 Reserved</p>
                                         </td>
                                     </tr>
