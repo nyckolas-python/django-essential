@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'email_app',
     'reset_password_app',
     'graph_app',
+    'graphql_mutations_app',
     'graphene_django',
     'graphql_jwt.refresh_token.apps.RefreshTokenConfig',
 ]
