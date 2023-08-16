@@ -14,6 +14,7 @@ import os
 import django
 
 from dotenv import load_dotenv
+from datetime import timedelta
 from pathlib import Path
 from django.utils.encoding import smart_str
 django.utils.encoding.smart_text = smart_str
@@ -57,7 +58,34 @@ INSTALLED_APPS = [
     'jinja_app',
     'email_app',
     'reset_password_app',
+    'graph_app',
+    'graphene_django',
+    'graphql_jwt.refresh_token.apps.RefreshTokenConfig',
 ]
+
+# AUTH_USER_MODEL = 'graph_app.ApiClient'
+
+AUTHENTICATION_BACKENDS = [
+    'graphql_jwt.backends.JSONWebTokenBackend',
+    'django.contrib.auth.backends.ModelBackend'
+]
+
+GRAPHENE = {
+    'SCHEMA': 'graph_app.schema.schema',
+    'MIDDLEWARE': [
+        "graphql_jwt.middleware.JSONWebTokenMiddleware"
+    ]
+}
+
+GRAPHQL_JWT = {
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+    'JWT_VERIFY_EXPIRATION': True,
+    'JWT_LONG_RUNNING_REFRESH_TOKEN': True,
+    'JWT_EXPIRATION_DELTA': timedelta(days=1),
+    'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=7),
+    'JWT_SECRET_KEY': SECRET_KEY,
+    'JWT_ALGORITHM': 'HS256',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,6 +95,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
