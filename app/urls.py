@@ -33,4 +33,5 @@ urlpatterns = [
     path('', include('email_app.urls')),
     path('', include('reset_password_app.urls')),
     path('', include('graph_app.urls')),
+    path('', include('chat.urls')),
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
